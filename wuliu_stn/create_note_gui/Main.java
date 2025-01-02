@@ -2,11 +2,17 @@ package wuliu_stn.create_note_gui;
 
 import javax.swing.*;
 import java.awt.*;
+import wuliu_stn.util.MyUtil;
 
 public class Main implements Runnable {
 
     public static void main(String[] args) {
+        check();
         SwingUtilities.invokeLater(new Main());
+    }
+
+    static void check() {
+        MyUtil.checkProjectExists();
     }
 
     public void run() {
