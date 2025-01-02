@@ -2,12 +2,15 @@ package wuliu_stn.create_note_gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+
 import wuliu_stn.util.MyUtil;
 
 public class Main implements Runnable {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         check();
+        MyUtil.createNoteToday("abc");
         SwingUtilities.invokeLater(new Main());
     }
 
