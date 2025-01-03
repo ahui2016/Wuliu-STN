@@ -2,15 +2,14 @@ package wuliu_stn.create_note_gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 import wuliu_stn.util.MyUtil;
+import wuliu_stn.util.ScrollArea;
 
 public class Main implements Runnable {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         check();
-        MyUtil.createNoteToday("abc");
         SwingUtilities.invokeLater(new Main());
     }
 
@@ -22,10 +21,28 @@ public class Main implements Runnable {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JLabel label = new JLabel("I'm a label");
-        frame.add(BorderLayout.CENTER, label);
+        JPanel mainPanel = new JPanel();
+        JLabel labelTitle = new JLabel("Wuliu Simple Text Note");
+        mainPanel.add(labelTitle);
 
-        frame.setSize(500, 500);
+        ScrollArea scrollArea = new ScrollArea();
+        mainPanel.add(scrollArea.scrollPane());
+
+//        JLabel labelNorth = new JLabel("  Wuliu Simple Text Note");
+//        frame.add(BorderLayout.NORTH, labelNorth);
+//        JLabel labelWest = new JLabel("  ");
+//        frame.add(BorderLayout.WEST, labelWest);
+//        JLabel labelEast = new JLabel("  ");
+//        frame.add(BorderLayout.EAST, labelEast);
+
+        JLabel spacer = new JLabel(" ".repeat(150));
+        mainPanel.add(spacer);
+        JButton okButton = new JButton("ENTER");
+        mainPanel.add(okButton);
+
+        frame.add(BorderLayout.CENTER, mainPanel);
+        frame.setSize(500, 400);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
