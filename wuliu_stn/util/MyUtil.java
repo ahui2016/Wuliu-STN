@@ -30,7 +30,7 @@ public class MyUtil {
         System.out.printf("file name: %s\n", file);
         if (Files.notExists(file)) {
             System.out.println("CREATE");
-            text = today + "\n\n" + text;
+            text = today + "\n" + "-".repeat(15) + "\n\n" + text;
             System.out.println(text);
             Files.writeString(file, text, StandardOpenOption.CREATE);
             return;
