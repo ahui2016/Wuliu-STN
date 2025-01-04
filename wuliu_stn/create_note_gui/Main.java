@@ -34,7 +34,7 @@ public class Main implements Runnable {
 
         JLabel spacer = new JLabel(" ".repeat(150));
         mainPanel.add(spacer);
-        JButton okButton = new JButton("ENTER");
+        JButton okButton = new JButton("OK");
         okButton.addActionListener(new OkButtonListener());
         mainPanel.add(okButton);
 

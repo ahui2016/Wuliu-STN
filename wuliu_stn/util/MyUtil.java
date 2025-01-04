@@ -1,6 +1,5 @@
 package wuliu_stn.util;
 
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,18 +26,17 @@ public class MyUtil {
         String today = LocalDate.now().toString();
         String filename = today + ".txt";
         Path file = Path.of(allNotesFolderName, filename);
-        System.out.printf("file name: %s\n", file);
         if (Files.notExists(file)) {
-            System.out.println("CREATE");
-            text = today + "\n" + "-".repeat(15) + "\n\n" + text;
+            System.out.printf("Create file %s\n", file);
+            text = today + "\n" + "-".repeat(15) + "\n\n" + text + "\n";
             System.out.println(text);
             Files.writeString(file, text, StandardOpenOption.CREATE);
             return;
         }
         if (Files.exists(file)) {
-            System.out.println("APPEND");
+            System.out.printf("Append to file %s\n", file);
             System.out.println(text);
-            Files.writeString(file, "\n\n" + text, StandardOpenOption.APPEND);
+            Files.writeString(file, "\n\n" + text + "\n", StandardOpenOption.APPEND);
         }
     }
 }
